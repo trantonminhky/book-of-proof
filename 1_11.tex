@@ -1,0 +1,214 @@
+\documentclass{exam}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+
+\newbox\eeveebox
+\setbox\eeveebox\hbox{
+\raisebox{-2.5pt}{\includegraphics[height=2.5ex]{iibui.png}}}
+\def\eeveeKawaii{\copy\eeveebox}
+
+\NewTColorBox{problem}{m}{
+  standard jigsaw,
+  sharp corners,
+  boxrule=0.4pt,
+  coltitle=black,
+  colframe=black,
+  opacityback=0,
+  opacitybacktitle=0,
+  fonttitle=\normalfont\bfseries\upshape,
+  fontupper=\normalfont\itshape,
+  title={Problem #1},
+  after title={.},
+  attach title to upper={\ },
+}
+
+\renewcommand\qedsymbol{$\eeveeKawaii$}
+
+\title{Hammack Exercises - Section 3.10}
+\author{FungusDesu}
+\date{August 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Preface}
+i dont really have anything to say
+
+\section{Proofs}
+\begin{problem}{3.10.1}
+    Show that $$1(n-0) + 2(n-1) + \dots+(n-1)2 + (n-0)1 = \binom{n+2}{3}$$
+\end{problem}
+
+\begin{proof}
+    Let $S = \{1, 2, 3, \dots,n+2\}$. The right hand side is the number of ways to choose 3 elements $(a, b, c)$ from $S$, evident from the definition of $\binom n k$.
+
+    We shall count this with a different way for the left hand side. Because $b$ has at least one number to its left and at least one number to its right, we must have $2 \le b \le n+1$. Once $b$ is fixed, we can see that there are $b-1$ options for $a$ (namely, the numbers from $1$ to $b-1$ inclusive) and $n+2-b$ options for $c$ (namely, the numbers from $b+1$ to $n+2$ inclusive). Indeed, there are $(b-1)(n+2-b)$ ways to pick $a, b$ and $c$ by multiplication principle, thus the total number of selections for every possible value of $b$ is \[
+    \sum_{b=2}^{n} (b-1)(n+2-b) = 1(n-0) + 2(n-1) +  \dots + (n-0)1
+    \]
+    We have counted the number of ways to pick 3 elements from the set $S$ using 2 methods. One method gives $\binom{n+2}{3}$, the other gives $1(n-0) + 2(n-1) +  \dots + (n-0)1$. Therefore $1(n-0) + 2(n-1) +  \dots + (n-0)1 = \binom{n+2}{3}$.
+\end{proof}
+
+\begin{problem}{3.10.2}
+    Show that $$1 + 2 + 3 +  \dots + n = \binom{n+1}2$$
+\end{problem}
+
+\begin{proof}
+    Let $S = {1, 2, 3,  \dots, n+1}$. The right hand side is the number of ways to choose $2$ elements from $S$, evident from the definition of $\binom{n+1}2$.
+    
+    For the left hand side, we shall consider a different way of counting. Let $a \in S \setminus \{n+1\}$. For each $a$, we have $n+1-a$ ways to choose $b \in S$ such that $a < b$. Indeed, the number of ordered pairs $(a, b)$ shall be \[
+        \sum_{a=1}^{n} n+1-a = n + (n-1) + (n-2) +  \dots + 2 + 1 = 1 + 2 + 3 +  \dots + n
+    \]
+    There are two methods we can choose $2$ elements from $S$, one outputs $\binom{n+1}2$, whereas the other outputs $1 + 2 + 3 +  \dots + n$. Therefore $1 + 2 + 3 +  \dots + n=\binom{n+1}2$.
+\end{proof}
+
+\begin{problem}{3.10.3}
+    Show that $$\binom{n}2\binom{n-2}{k-2}=\binom{n}k\binom{k}2$$
+\end{problem}
+
+\begin{proof}
+    Suppose we have a pool of $n$ people, and we are tasked with picking $k$ people from it to make a team, in which we must appoint two captains.
+
+    There are two methods to do this. The first method involves picking $k$ people from the pool, and then appoint 2 captains among the chosen. The right hand side conveys the number of ways to carry out this method given $n$ and $k$.
+
+    On the other hand, we can also do the reverse: appoint the two captains first, then choose $k-2$ people from the pool to fill in the team. The number of ways to do this is precisely what the left hand side conveys.
+
+    Because both sides of the equation can successfully complete the task, the equation $\binom{n}2\binom{n-2}{k-2}=\binom{n}k\binom{k}2$ must be true.
+\end{proof}
+
+\begin{problem}{3.10.4}
+    Show that $$P(n, k) = P(n-1,k)+k\cdot P(n-1, k-1)$$
+\end{problem}
+
+\begin{proof}
+    Let $S = \{1, 2, 3, 4, \dots, n\}$. How many $k$-permutations of $S$ are there? The obvious answer is $P(n, k)$, as evident from the defintion of permutations.
+
+    We shall answer the same question with a different method. There are two types of $k$-permutations we need to consider: one with $1$, and one without $1$. The number of $k$-permutations without $1$ is indeed $P(n-1,k)$. The number of $(k-1)$-permutations not including $1$ is $P(n-1, k-1)$. Thus the total number of $k$-permutations that are $1$-inclusive and $1$-exclusive is \[
+    P(n-1, k) + k\cdot P(n-1, k-1)
+    \]
+    Indeed, we have found two correct ways that answer the same question. Thus $P(n, k) = P(n-1,k)+k\cdot P(n-1, k-1)$.
+\end{proof}
+
+\begin{problem}{3.10.5}
+    Show that $$\binom{2n}{2} = 2\binom{n}2 + n^2$$
+\end{problem}
+
+\begin{proof}
+    Let $S = \{1, 2, 3, \dots, 2n\}$. The left hand side is the number of ways to pick 2 elements from $S$, evident from the definition of $\binom{n}{k}$.
+
+    We shall count this in a different way. Partition $S$ into two sets, $A=\{1, 2, 3, \dots,n\}$ and $B=\{n+1, n+2,  \dots, 2n\}$. As we pick a subset of $S$ with cardinality $2$, there are two types of subsets we need to consider.
+    
+    \begin{itemize}
+        \item Subsets of $S$ that only contain elements only from $A$, or elements only from $B$, which we can have $2\binom{n}2$ ways of picking.
+        \item Subsets of $S$ that contain elements from both $A$ and $B$, which we can have $n^2$ ways of picking.
+    \end{itemize}
+
+    In total, we have $2\binom{n}2 + n^2$ ways to pick two elements from $S$. Thus $\binom{2n}{2} = 2\binom{n}2 + n^2$.
+\end{proof}
+
+\begin{problem}{3.10.6}
+    Show that $$\binom{3n}{3}=3\binom{n}3+6n\binom{n}2+n^3$$
+\end{problem}
+
+\begin{proof}
+    Because this problem is fundamentally similar to \textbf{3.10.5} but with partition of $S$ into three sets rather than two, we shall approach this the same way. Let $S = \{1, 2, 3, \dots, 3n\}$, the left hand side is the number of ways to choose 3 elements from $S$.
+
+    Partition $S$ into three sets, $A = \{1, 2,  \dots, n\}$, $B = \{n+1, n+2,  \dots, 2n\}$ and $C=\{2n + 1, 2n + 2,  \dots, 3n\}$. The number of subsets of $S$ with cardinality $3$ is the total number of
+
+    \begin{itemize}
+        \item Subsets that contain only elements from one of the three partitions. There are $3\binom{n}3$ subsets that satisfy this.
+        \item Subsets that contain two elements from a partition and one from another. There are $6n\binom{n}2$ subsets that satisfy this.
+        \item Subsets that contain one element from each partition. There are $n^3$ subsets that satisfy this.
+    \end{itemize}
+
+    Therefore, the total number of ways to choose three elements from $S$ can also be $3\binom{n}3+6n\binom{n}2+n^3$. Thus $\binom{3n}{3}=3\binom{n}3+6n\binom{n}2+n^3$.
+\end{proof}
+
+\begin{problem}{3.10.7}
+    Show that $$\sum_{k=0}^p \binom{m}k\binom{n}{p-k}=\binom{m+n}p$$
+\end{problem}
+
+\begin{proof}
+    Let $S_1 = \{1, 2,  \dots, m\}$, $S_2 = \{1, 2,  \dots, n\}$. The right hand side is the number of ways to pick $p$ elements from $S_1 \cup S_2$.
+
+    We shall count this with a different way. Let $0 \le k \le p$, pick $k$ elements from $m$ first, then pick the remaining $p-k$ elements from $n$. The numbers of ways to do this are $\binom{m}{k}$ and $\binom{n}{p-k}$ respectively, thus the total number of ways to pick $p$ elements from $S_1 \cup S_2$ can also be \[
+    \binom{m}{0}\binom{n}{p-0} + \binom{m}{1}\binom{n}{p-1} + \dots +\binom{m}{p}\binom{n}{p-p}=\sum_{k=0}^p \binom{m}k\binom{n}{p-k}
+    \]
+    We have found another method to count the number of ways to pick $p$ elements from $S_1\cup S_2$ that resulted in a different expression, therefore $\sum_{k=0}^p \binom{m}k\binom{n}{p-k}=\binom{m+n}p$.
+\end{proof}
+
+\begin{problem}{3.10.8}
+    Show that $$\sum_{k=0}^m\binom{m}k\binom{n}{p+k}=\binom{m+n}{m+p}$$
+\end{problem}
+
+\begin{proof}
+    Let $S=\{1, 2,\dots, m, m+1, \dots, n\}$. The right hand side is the number of ways to pick $m+p$ elements in $S$.
+
+    We shall count this with a different way for the left hand side. Partition $S$ into two sets $A = \{1, 2, \dots, m\}$ and $B=\{m+1, m+2, \dots, n\}$ Let $0 \le k \le m$, we first pick $m-k$ element from $A$. But because we only have picked $m-k$ elements, we need to pick $p+k$ more elements from $B$. Thus we have the following expression \[
+    \sum_{k=0}^m \binom{m}{m-k}\binom{n}{p+k} = \sum_{k=0}^m \binom{m}{k}\binom{n}{p+k}
+    \]
+    This expression is the total number of ways to choose $m+p$ elements from $S$ as $k$ varies from 0 to $m$. Therefore $\sum_{k=0}^m\binom{m}k\binom{n}{p+k}=\binom{m+n}{m+p}$.
+\end{proof}
+
+\begin{problem}{3.10.9}
+    Show that $$\sum_{k=m}^n\binom{k}{m}=\binom{n+1}{m+1}$$
+\end{problem}
+
+\begin{proof}
+    Let $S=\{1, 2, \dots, n+1\}$. There are $\binom{n+1}{m+1}$ subsets of size $m+1$ we can form from $S$.
+
+    Alternatively, we can count by counting the numbers of subsets that have the largest element of $m+1$, $m+2$ and so on individually. Let $m \le k \le n$, for each $k$ there are $\binom{m+k}{m}$ ways to pick our subset. Thus as $k$ varies from $m$ to $n$, the total number of our subsets will be \[
+    \binom{m}{m} + \binom{m+1}{m} + \dots + \binom{n}{m} = \sum_{k=m}^n \binom{k}{m}
+    \]
+    As such, we have proven $\sum_{k=m}^n \binom{k}{m} = \binom{n+1}{m+1}$.
+\end{proof}
+
+\begin{problem}{3.10.10}
+    Show that $$\sum_{k=1}^n k\binom{n}{k}=n2^{n-1}$$
+\end{problem}
+
+\begin{proof}
+    Suppose we have a pool of $n$ people, and we are to create a team of players with one captain with arbitrary members. Let $1\le k \le n$, we can first pick $k$ people from the pool, and then appoint one captain within the team. As $k$ varies from $1$ to $n$, the expression that conveys this is \[
+    \sum_{k=1}^n k\binom n k
+    \]
+
+    Alternatively, we can appoint the captain first from the pool, then we pick the remaining members for the team from the pool without the captain. The expression that captures this method is \[
+    n2^{n-1}
+    \]
+    Thus, the two expressions must be equal. Therefore, we have proven $\sum_{k=1}^n k\binom{n}{k}=n2^{n-1}$.
+\end{proof}
+
+\begin{problem}{3.10.11}
+    Show that $$\sum_{k=0}^n 2^k\binom n k=3^n$$
+\end{problem}
+
+\begin{proof}
+    Suppose we have a pool of $n$ people, and we are to create a team of $k$ players; and in that team, assign an arbitrary number of players that wear red shirts. For $0 \le k \le n$, we can pick $k$ people first from the pool, then we have $2^k$ ways to choose the group of players who will wear red shirt. Thus the total number of ways to create such team is \[
+    \sum_{k=0}^n 2^k\binom n k
+    \]
+
+    Alternatively, we can see that the team will have three types of people: non-player, players without red shirts, and players with red shirts. Knowing this, it is obvious that we can have a total of $3^n$ ways to organize such team.
+\end{proof}
+
+\begin{problem}{3.10.12}
+    Show that $$\sum_{k=0}^n\binom n k\binom k m=\binom n m 2^{n-m}$$
+\end{problem}
+
+\begin{proof}
+    Suppose we have a pool of $n$ people, and we want to organize a team of arbitrary number of players, in which there are $m$ people who will wear a red shirt. Let $0 \le k \le n$, for each $k$ we can organize a team of $k$ people from the pool, then within that team, choose $m$ people who will wear a red shirt. As $k$ varies from 0 to $n$, the total number of ways to create such team is \[
+        \sum_{k=0}^n\binom n k\binom k m
+    \]
+
+    Alternatively, from the pool we can choose $m$ people who will wear red shirts first, then fill in the team with players who do not wear red shirts. The expression that conveys the number of ways to organize such team is \[
+        \binom n m 2^{n-m}
+    \]
+    Thus $\sum_{k=0}^n\binom n k\binom k m=\binom n m 2^{n-m}$
+\end{proof}
+
+\end{document}
