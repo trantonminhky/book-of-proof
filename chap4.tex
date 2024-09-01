@@ -1,0 +1,342 @@
+\documentclass{exam}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{amsfonts}
+
+\newbox\eeveebox
+\setbox\eeveebox\hbox{
+\raisebox{-2.5pt}{\includegraphics[height=2.5ex]{iibui.png}}}
+\def\eeveeKawaii{\copy\eeveebox}
+
+\NewTColorBox{proposition}{m}{
+  standard jigsaw,
+  sharp corners,
+  boxrule=0.4pt,
+  coltitle=black,
+  colframe=black,
+  opacityback=0,
+  opacitybacktitle=0,
+  fonttitle=\normalfont\bfseries\upshape,
+  fontupper=\normalfont\itshape,
+  title={Proposition #1},
+  after title={.},
+  attach title to upper={\ },
+}
+
+\renewcommand\qedsymbol{$\eeveeKawaii$}
+
+\title{Hammack Exercises - Chapter 4}
+\author{FungusDesu}
+\date{August 27th 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Preface}
+i dont really have anything to say
+
+\section{Answers}
+\begin{proposition}{4.1}
+    If $x$ is an even integer, then $x^2$ is even.
+\end{proposition}
+
+\begin{proof}
+    Suppose $x$ is even, we shall have $x=2a$ for some $a\in\mathbb{Z}$ by definition of an even number. Thus $x^2 = (2a)^2 = 4a^2$, so $x^2=2b$ where $b = 2a^2 \in \mathbb{Z}$. Therefore $x^2$ is even, by definition of an even number.
+\end{proof}
+
+\begin{proposition}{4.2}
+    If $x$ is an odd integer, then $x^3$ is odd
+\end{proposition}
+
+\begin{proof}
+    Suppose $x$ is odd, we shall have $x=2a+1$ for some $a \in \mathbb{Z}$ by definition of an odd number. Thus $x^3 = (2a+1)^3 = 8a^3+6a^2+6a+1$, so $x^3 = 2b + 1$ where $b = 4a^3+3a^2+3a \in \mathbb{Z}$. Therefore $x^3$ is odd by definition of an odd number.
+\end{proof}
+
+\begin{proposition}{4.3}
+    If $a$ is an odd integer, then $a^2 +3a+5$ is odd.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a$ is odd, we shall have $a=2x+1$ for some $x\in\mathbb{Z}$ by definition of an odd number. Thus $a^2 + 3a + 5 = (2x+1)^2+3(2x+1)+5 =4x^2+4x+1+6x+3+5=4x^2+10x+9$, so $a^2+3a+5 = 2y + 1$ where $y = 2x^2+5x+4 \in \mathbb{Z}$. Therefore $a^2+3a+5$ is odd by definition of an odd number.
+\end{proof}
+
+\begin{proposition}{4.4}
+    Suppose $x, y \in \mathbb{Z}$. If $x$ and $y$ are odd, then $xy$ is odd.
+\end{proposition}
+
+\begin{proof}
+    Suppose $x, y \in \mathbb{Z}$ are both odd, we shall have $x = 2a +1$ and $y = 2b+1$ for some $a,b\in\mathbb{Z}$ by definition of an odd number. Thus $xy=(2a+1)(2b+1)=4ab+2a+2b+1$, so $xy = 2u+1$ where $u=2ab+a+b \in \mathbb{Z}$. Therefore $xy$ is odd by definition of an odd number.
+\end{proof}
+
+\begin{proposition}{4.5}
+    Suppose $x,y\in\mathbb{Z}$. If $x$ is even, then $xy$ is even.
+\end{proposition}
+
+\begin{proof}
+    Suppose $x\in\mathbb{Z}$ is even, we shall have $x = 2a$ for some $a\in\mathbb{Z}$ by definition of an even number. Thus $xy = 2ay$, so $xy = 2b$ where $b = ay \in \mathbb{Z}$. Therefore $xy$ is even by definition of an even number.
+\end{proof}
+
+\begin{proposition}{4.6}
+    Suppose $a, b, c\in\mathbb{Z}$. If $a\mid b$ and $a\mid c$, then $a\mid(b+c)$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a \mid b$ and $a \mid c$, we have $b = ax$ and $c = ay$ for some $x, y\in\mathbb{Z}$. Thus $b + c = ax + ay = a(x+y)$, so $b+c = az$ where $z = x + y \in \mathbb{Z}$. Therefore $a\mid(b+c)$.
+\end{proof}
+
+\begin{proposition}{4.7}
+    Suppose $a, b\in\mathbb{Z}$. If $a \mid b$, then $a^2\mid b^2$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a \mid b$, we have $b = ac$ for some $c\in\mathbb{Z}$. Thus $b^2=(ac)^2 = a^2c^2$, so $b^2 = a^2x$ where $x = c^2 \in \mathbb{Z}$. Therefore $a^2 \mid b^2$.
+\end{proof}
+
+\begin{proposition}{4.8}
+    Suppose $a$ is an integer. If $5 \mid 2a$, then $5 \mid a$.
+\end{proposition}
+
+\begin{proof}
+    Consider $5 \mid a = 5 \mid (5a - 4a) = 5 \mid (5a + (-4a))$. We know that the sum of any two multiple of $n \in \mathbb{Z}$ is also a multiple of $n$ (we recall \textbf{Proposition 4.6}), thus we shall prove $5 \mid 5a$ and $5 \mid -4a$.
+
+    It is trivial that $5 \mid 5a$. Suppose $5 \mid 2a$, we have $2a = 5n$ for some $n\in\mathbb{Z}$. Thus $-4a = -10n$, so $-4a = 5k$ where $k =-2n\in\mathbb{Z}$. Therefore $5\mid-4a$, and we have proven $5\mid (5a-4a) = 5\mid a$.
+\end{proof}
+
+\begin{proposition}{4.9}
+    Suppose $a$ is an integer. If $7 \mid 4a$, then $7 \mid a$
+\end{proposition}
+
+\begin{proof}
+    Consider $7 \mid a = 7 \mid (8a - 7a)$. Recall \textbf{Proposition 4.6}, we shall prove $7 \mid a$ by proving $7\mid 8a$ and $7\mid-7a$.
+
+    It is trivial that $7\mid -7a$. Suppose $7 \mid 4a$, we have $4a = 7k$ for some $k \in\mathbb{Z}$. Thus $8a = 14k$, so $8a = 7n$ where $n = 2k \in \mathbb{Z}$. Therefore $7\mid8a$, implying $7 \mid (8a - 7a) = 7\mid a$.
+\end{proof}
+
+\begin{proposition}{4.10}
+    Suppose $a$ and $b$ are integers. If $a\mid b$, then $a \mid (3b^3-b^2+5b)$
+\end{proposition}
+
+\begin{proof}
+    Suppose $a \mid b$, therefore $b = ac$ for some $c\in\mathbb Z$. Thus, we have the following:
+    \begin{itemize}
+        \item $3b^3 = 3a^3c^3$, so $3b^3 = ax$ where $x = 3a^2c^3 \in\mathbb Z$.
+        \item $-b^2 = -a^2c^2$, so $-b^2 = ay$ where $y = -ac^2 \in\mathbb Z$.
+        \item $5b = 5ac$, so $5b = az$ where $z = 5c\in\mathbb Z$.
+    \end{itemize}
+    Summing these up, we have $3b^3 -b^2+5b = a(x + y + z) \in\mathbb Z$. Therefore $a\mid(3b^3-b^2+5b)$.
+\end{proof}
+
+\begin{proposition}{4.11}
+    Suppose $a, b,c,d\in\mathbb Z$. If $a\mid b$ and $c\mid d$, then $ac\mid bd$
+\end{proposition}
+
+\begin{proof}
+    Suppose $a\mid b$ and $c\mid d$, we shall have $b=ax$ for some $x\in\mathbb Z$ and $d = cy$ for some $y\in\mathbb Z$. Thus $bd = acxy\in\mathbb Z$, therefore $ac\mid bd$.
+\end{proof}
+
+\begin{proposition}{4.12}
+    If $x\in\mathbb R$ and $0 < x < 4$, then $\frac{4}{x(4-x)}\ge 1$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $x\in\mathbb R$ and $0 < x < 4$. Observe that $(x-2)^2 \ge 0$ for all $0 < x < 4$. Thus we have the following \[
+        (x-2)^2 \ge 0 \Leftrightarrow x^2-4x+4\ge0\Leftrightarrow x(x-4)\ge-4\Leftrightarrow \frac{4}{x(4-x)}\ge1
+    \]
+    as desired.
+\end{proof}
+
+\begin{proposition}{4.13}
+    Suppose $x, y\in\mathbb R$. If $x^2+5y=y^2+5x$, then $x=y$ or $x + y = 5$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $x^2+5y=y^2+5x$, we have the following
+    \begin{align*}
+        x^2+5y=y^2+5x       \\
+        x^2-y^2-5x+5y=0     \\
+        (x+y)(x-y)-5(x-y)=0 \\
+        (x-y)(x+y-5)=0      \\
+    \end{align*}
+    The equation $(x-y)(x+y-5)$ is true if and only if $x-y = 0 \iff x=y$, or $x+y-5 = 0 \iff x+y=5$. Thus we have proven if $x^2+5y=y^5+5x$, then $x=y$ or $x+y=5$, as desired.
+\end{proof}
+
+\begin{proposition}{4.14}
+    If $n\in\mathbb Z$, then $5n^2+3n+7$ is odd.
+\end{proposition}
+
+\begin{proof}
+    Suppose $n\in\mathbb Z$. In order to prove $5n^2 + 3n + 7$ is odd, there are two cases we need to consider, depending on whether $n$ itself is even or odd.
+    \begin{description}
+        \item[Case 1. ] Suppose $n = 2k$ for some $k \in \mathbb Z$, then $5(2k)^2+3(2k)+7 = 20k^2 + 6k + 7$. Thus $5n^2 + 3n + 7 = 2u + 1$ where $u = 10k^2 + 3k + 3 \in\mathbb Z$. Therefore $5n^2 + 3n +7$ is odd by definition of an odd number, for all $n = 2k$.
+        \item[Case 2. ] Suppose $n = 2k + 1$ for some $k \in \mathbb Z$, then $5(2k+1)^2+3(2k+1)+7 = 20k^2+20k+5 + 6k + 3 + 7 = 20k^2 + 26k + 15$. Thus $5n^2 + 3n + 7 = 2u + 1$ where $u = 10k^2 + 13k + 7 \in\mathbb Z$. Therefore $5n^2 +3n +7$ is odd by definition of an odd number, for all $n = 2k + 1$.
+    \end{description}
+
+    The above cases show that no matter whether $n$ is even or odd, $5n^2 + 3n + 7$ is odd for some $n \in \mathbb Z$.
+\end{proof}
+
+\begin{proposition}{4.15}
+    If $n\in\mathbb Z$, then $n^2 + 3n + 4$ is even.
+\end{proposition}
+
+\begin{proof}
+    Suppose $n \in\mathbb Z$. In order to prove $n^2 + 3n + 4$ is even, there are two cases we need to consider, depending on whether $n$ itself is even or odd.
+    \begin{description}
+        \item[Case 1.] Suppose $n = 2k$ for some $k\in\mathbb Z$, then $(2k)^2 + 3(2k) + 4 = 4k^2 + 6k + 4$. Thus $n^2 + 3n + 4 = 2u$ where $u = 2k^2 + 3k + 2 \in \mathbb Z$. Therefore $n^2+3n+4$ is even by definition of an even number, for all $n = 2k$.
+        \item[Case 2. ] Suppose $n = 2k + 1$ for some $k \in\mathbb Z$, then $(2k + 1)^2 + 3(2k + 1) + 4 = 4k^2 + 4k + 1 + 6k + 3 + 4 = 4k^2 + 10k + 8$. Thus $n^2 + 3n + 4 = 2u + 1$ where $u = 2k^2 + 5k +4 \in \mathbb Z$. Therefore $n^2 + 3n + 4$ is even by definition of an even number, for all $n = 2k + 1$.
+    \end{description}
+
+    The above cases show that no matter whether $n$ is even or odd, $n^2 + 3n + 4$ is even for some $n \in \mathbb Z$
+\end{proof}
+
+\begin{proposition}{4.16}
+    If two integers have the same parity, then their sum is even.
+\end{proposition}
+
+\begin{proof}
+    Suppose $m, n\in\mathbb Z$ have the same parity, we shall show $m + n = 2k$ for some $k \in\mathbb{Z}$. There are two cases we need to consider.
+    \begin{description}
+        \item[Case 1. ] Suppose $m, n$ are both even. It follows that $m = 2x$ for some $x \in\mathbb Z$, and $n = 2y$ for some $y \in\mathbb Z$. Thus $m + n = 2x + 2y = 2(x+y)$. Because $x + y \in\mathbb Z$, $m + n$ is even by definition of an even number for even $m$ and $n$.
+        \item[Case 2. ] Suppose $m, n$ are both odd. It follows that $m = 2x + 1$ for some $x \in\mathbb Z$, and $n = 2y + 1$ for some $y \in\mathbb Z$.  Thus $m + n = 2x + 1 + 2y + 1 = 2(x + y + 1)$. Because $x + y + 1 \in\mathbb Z$, $m + n$ is even by definition of even number for odd $m$ and $n$.
+    \end{description}
+
+    The above cases show that the sum of two integers will be even if both terms have the same parity, as desired.
+\end{proof}
+
+\begin{proposition}{4.17}
+    If two integers have opposite parity, then their product is even.
+\end{proposition}
+
+\begin{proof}
+    Suppose $m, n \in \mathbb Z$ have opposite parity. Without loss of generality, suppose $m$ is odd and $n$ is even. It follows that $m = 2x + 1$ for some $x \in\mathbb Z$, and $n = 2y$ for some $y \in\mathbb Z$. Thus $mn = (2x+1)2y = 2(2xy+y)$. Because $2xy + y\in\mathbb Z$, $mn$ is even by definition of an even number.
+\end{proof}
+
+\begin{proposition}{4.18}
+    Suppose $x$ and $y$ are positive real numbers. If $x < y$, then $x^2 < y^2$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $x < y$. It follows that
+    \begin{align*}
+        x-y < 0       \\
+        (x-y)(x+y)<0  \\
+        x^2 - y^2 < 0 \\
+        x^2 < y^2
+    \end{align*}
+    as desired.
+\end{proof}
+
+\begin{proposition}{4.19}
+    Suppose $a, b$ and $c$ are integers. If $a^2\mid b$ and $b^3\mid c$, then $a^6 \mid c$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a^2 \mid b$ and $b^3 \mid c$, it follows that $b = a^2x$ for some $x\in\mathbb Z$ and $c = b^3y$ for some $y\in\mathbb Z$. Thus $b^3 = (a^2x)^3=a^6x^3$, so $c = a^6x^3y$. Because $x^3y \in\mathbb Z$, we have proven $a^6 \mid c$, as desired.
+\end{proof}
+
+\begin{proposition}{4.20}
+    If $a$ is an integer and $a^2 \mid a$, then $a \in \{-1, 0, 1\}$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a\in\mathbb Z$ and $a^2 \mid a$, then $a = a^2c$ for some $c \in\mathbb Z$. We consider the following two cases
+    \begin{description}
+        \item[Case 1. ] If $a = 0$, the equation $a = a^2c$ is always true.
+        \item[Case 2. ] If $a \neq 0$, then it follows that $1 = ac$. The equation is only true if and only if $a = 1$ and $c = 1$, or $a = -1$ and $c = -1$.
+    \end{description}
+
+    Therefore the equation $a=a^2c$ implies $a\in\{-1, 0, 1\}$, as desired.
+\end{proof}
+
+\begin{proposition}{4.21}
+    If $p$ is prime and $k$ is an integer for which $0 < k < p$, then $p$ divides $\binom p k$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $p$ is a prime and $k$ is an integer for which $0 < k < p$. By definition
+    \begin{align*}
+        \binom{p}{k} =\frac{p!}{k!(p-k)!} \\
+        \binom{p}{k} k!(p-k)! = p!
+    \end{align*}
+
+    Because $p!$ must have a factor of $p$ (obvious from the definition of factorial), $\binom{p}{k} k!(p-k)!$ must also have a factor of $p$. We know that $p$ is prime and both $k!$ and $(p-k)!$ are products of numbers less than p, so there exists no number smaller than $p$ in its prime factorization, and neither do $k!$ and $(p-k)!$. Thus $\binom{p}{k}$ must have $p$ in its prime factorization. Therefore $p \mid \binom p k$, as desired.
+
+\end{proof}
+
+\begin{proposition}{4.22}
+    If $n\in\mathbb N$, then $n^2 = 2\binom n 2 + \binom n 1$.
+\end{proposition}
+
+\begin{proof}
+    We shall consider two cases where $n=1$ and $n\neq 1$.
+    \begin{description}
+        \item[Case 1. ] If $n=1$, then the equation is true.
+        \item[Case 2. ] We consider the case for $n\neq 1$. Suppose we have a group of $n$ people, and we are to choose 1 person to hold a red ball and 1 person to hold a blue ball. As one person can hold multiple balls, it is evident there are $n^2$ ways to choose people to assign the two balls. Alternatively, we can see that there are two cases, where there is no one who holds two balls, and where there is only one person who holds two balls. For the former case we have $\binom n 2$ ways to choose two people to hold a ball, multiplying by two because there are $2$ ways to shuffle the balls. For the latter case we have $\binom n 1$ ways to choose one person to hold both balls.
+    \end{description}
+
+    Thus we have proven $n^2=2\binom n 2 + \binom n 1$ for each case $n = 1$ and $n\neq 1$, as desired.
+\end{proof}
+
+\begin{proposition}{4.23}
+    If $n \in \mathbb N$, then $\binom{2n}n$ is even.
+\end{proposition}
+
+\begin{proof}
+    Suppose $n\in\mathbb N$. Consider a collection of $2n$ balls. Choosing $n$ of them to put into a box is the equivalent of removing $2n - n = n$ of them to leave out of the box. Thus we can form pairs of $A\subseteq [1:2n]$ with its complement $[1:2n] \setminus A$, both having the cardinality $n$. And because we can always form such pairs with no leftover, $\binom{2n}n$ must be a multiple of two. Thus we have proven $\binom{2n}n$ is even, as desired.
+\end{proof}
+
+\begin{proposition}{4.24}
+    If $n\in\mathbb N$ and $n\ge 2$, then the numbers $n!+2,n!+3, n!+4, n!+5,\dots,n!+n$ are all composite.
+\end{proposition}
+
+\begin{proof}
+    Suppose $n\in\mathbb N$ and $n\ge2$. Consider $n!+k$ where $2 \le k \le n$, it is easily seen that $n!$ is divisible by $k$ since it is one of the factors in the product that defines $n!$. Thus $n! + k = k\left(\frac{n!}k + 1\right)$, as desired.
+\end{proof}
+
+\begin{proposition}{4.25}
+    If $a,b,c\in\mathbb N$ and $c\le b\le a$, then $\binom a b\binom b c = \binom{a}{b-c}\binom{a-b+c}c$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a,b,c\in\mathbb N$ and $c\le b\le a$. Consider a group of $a$ people, and we need to choose $b$ people to wear a shirt, then from that subgroup of $b$ people, choose $c$ people to wear a hat. By definition of $\binom{n}{k}$ for some $n, k\in\mathbb N$, then there are $\binom a b\binom b c$ ways to achieve the task. Alternatively, we can choose $b-c$ people first that will wear only a shirt, then from the remaining $a-b+c$ people, choose $c$ people to wear both items. Thus we have $\binom{a}{b-c}\binom{a-b+c}c$ ways to do this. As we have arrived to two different expressions that both correctly answer the same counting question, they must be equal. Therefore $\binom a b\binom b c = \binom{a}{b-c}\binom{a-b+c}c$.
+\end{proof}
+
+\begin{proposition}{4.26}
+    Every odd integer is a difference of two squares.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a$ is odd. Then $a = 2k + 1$ for some $k\in\mathbb Z$. It follows that
+    \begin{align*}
+        2k + 1 = 2(k+1-1)+1 = 2(k+1)-1=(k+1)^2-(k+1)^2 + 2(k+1)-1=(k+1)^2-k^2
+    \end{align*}
+    So $a = (k+1)^2-k^2$. Because $k,k+1\in\mathbb Z$, we can always rewrite an odd integer into a difference of two squares, as desired.
+\end{proof}
+
+\begin{proposition}{4.27}
+    Suppose $a,b\in\mathbb N$. If $\gcd(a, b)>1$, then $b\mid a$ or $b$ is not prime.
+\end{proposition}
+
+\begin{proof}
+    Given $a,b\in\mathbb N$, suppose $d = \gcd(a,b)>1$. Then $a = dx$ and $b = dy$ for some $x, y\in\mathbb N$, and $\gcd(x, y) = 1$ (to yield maximum $d$, the numbers $x$ and $y$ must not share terms in their prime factorization, thus $\gcd(x, y) = 1$). We divide into two cases as follow depending on the value of $y$
+    \begin{description}
+        \item[Case 1. ] If $y=1$, then $x \ge 1$ and $b = d$. Since $x\in\mathbb N$, it follows that $d\mid a$. Therefore $b \mid a$
+        \item[Case 2. ] If $y>1$, then $b$ is a composite number.
+    \end{description}
+    as desired.
+\end{proof}
+
+\begin{proposition}{4.28}
+Let $a, b, c\in\mathbb Z$. Suppose $a$ and $b$ are not both zero, and $c\neq 0$. Prove that $c\cdot\gcd(a,b)\le\gcd(ca,cb)$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a$ and $b$ are not both zero, and $c \neq 0$. Let $d = \gcd(a,b)$, we need to prove $cd \le \gcd(ca,cb)$. By definition of greatest common divisor, we have $d \mid a$ and $d \mid b$. It follows that $cd \mid ca$ and $cd \mid cb$. Thus, the numbers $ca$ and $cb$ have $cd$ as a common divisor. Any common divisor of two numbers is less than or equal to their greatest common divisor, therefore $cd \le \gcd(ca,cb)$, as desired.
+\end{proof}
+
+\end{document}
